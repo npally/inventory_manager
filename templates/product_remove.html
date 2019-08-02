@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Remove Inventory{% endblock title %}
+
+{% block content %}
+  <h1>Remove Units</h1>
+  <h4>{{ product.name }}s</h4>
+  <form class="" action="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-primary">Remove from Inventory</button>
+      </div>
+
+
+
+  </form>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.name }} Inventory{% endblock title %}
+
+{% block content %}
+<h2>{{ object.name }}</h2>
+<table class="table">
+  <tr>
+    <thead class="thead-dark">
+      <th scope="col">Id</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Price</th>
+      <th scope="col">Total Value</th>
+      <th scope="col">Actions</th>
+    </thead>
+  </tr>
+
+  <tr>
+    <td>{{ object.product_id }}</td>
+    <td>{{ object.quantity }}</td>
+    <td>{{ object.price }}</td>
+    <td>{{ object.inventory_value }}</td>
+    <td><a href="{% url 'inventory_add' product.pk %}">Add</a> /
+      <a href="{% url 'inventory_remove' product.pk%}">Subtract</a> /
+      <a href="{% url 'product_delete' product.pk %}">Delete</a>
+    </td>
+  </tr>
+
+</table>
+{% endblock content %}
